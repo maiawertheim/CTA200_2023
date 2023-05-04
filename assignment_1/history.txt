@@ -1,0 +1,406 @@
+    1  ssh -g -L5906:lobster:5906 student16@gw.cita.utoronto.ca
+    2  ssh -g -L5906:lobster:5906 jdubinski@gw.cita.utoronto.ca
+    3  ssh -g -L5906:lobster:5906 student16@gw.cita.utoronto.ca
+    4  ssh -g -L5906:lobster:5906 student16@gw.cita.utoronto.ca
+    5  ls
+    6  dir | more
+    7  cd
+    8  cosmo1.cita.utoronto.ca
+    9  ssh cosmo1.cita.utoronto.ca
+   10  /home/cta200
+   11  /user/cta200
+   12  dir/home/cta200
+   13  /home/cta200
+   14  cd
+   15  cd/home/cta200
+   16  la home/cta200
+   17  ls home/cta200
+   18  ls/home/cta200
+   19  ls /home/cta200
+   20  cd /home/cta200
+   21  cd \home\cta200
+   22  cd /home/cta200
+   23  ls /home/cta200
+   24  find . -name '*auss*'
+   25  ls
+   26  cd Research
+   27  ls 
+   28  cd gauss2d
+   29  ls
+   30  pwd
+   31  cd /mnt/scratch-lustre/student16
+   32  ls
+   33  cd
+   34  pwd
+   35  mkdir gauss2d
+   36  cp -av /home/cta200/Research/gauss2d gauss2d
+   37  less gauss2d.cc
+   38  pwd
+   39  find . -name *auss*
+   40  less gauss2d.cc
+   41  less /gauss2d.cc
+   42  less /guass2d
+   43  less /gauss2d
+   44  cat Makefile
+   45  less gauss2d.cc
+   46  g++ gauss2d.cc -o gauss2d
+   47  g++ gauss2d.cc
+   48  module avail
+   49  module avail gcc
+   50  module load gcc/5.4.0
+   51  g++ gauss2d.cc -o gauss2d
+   52  less gauss2d
+   53  ls
+   54  pw
+   55  pwd
+   56  cd gauss2d/
+   57  ls
+   58  cd gauss2d/
+   59  ls
+   60  pwd
+   61  g++ gauss2d.cc -o gauss2d
+   62  ls
+   63  ./gauss2d 
+   64  ./gauss2d > data.txt
+   65  ls
+   66  module load python/2.7.12
+   67  module load python
+   68  module load python/2.7.12
+   69  python -version
+   70  python -h
+   71  module load python/2.7.12
+   72  python
+   73  ls
+   74  module list
+   75  ./plot.py < data.txt 
+   76  ./plot.py data.txt
+   77  ./gauss2d | ./plot.py
+   78  ./plot.py < data.txt
+   79  git clone https://github.com/beniz/eigenmvn.git
+   80  g++ -I/usr/include -I/usr/include/eigen3 -g -std=c++11 test_eigenmvn.cc
+   81  -o te
+   82  g++ -I/usr/include -I/usr/include/eigen3 -g -std=c++11 test_eigenmvn.cc -o te
+   83  module avail gcc
+   84  module load gcc/4.9.2
+   85  g++ -I/usr/include -I/usr/include/eigen3 -g -std=c++11 test_eigenmvn.cc -o te
+   86  cd /mnt/scratch-lustre/$USER/src
+   87  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
+   88  tar -zxf 3.2.8.tar.gz  # -z unzip "gz", -x "extract", -f specify "file"
+   89  cd /mnt/scratch-lustre/$USER/src
+   90  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
+   91  tar -zxf 3.2.8.tar.gz  # -z unzip "gz", -x "extract", -f specify "file"
+   92  /mnt/scratch-lustre/$USER/src
+   93  cd eigen-eigen-07105f7124f9
+   94  less INSTALL
+   95  cd eigen-eigen-07105f7124f9
+   96  less INSTALL
+   97  cd /mnt/scratch-lustre/$USER/src
+   98  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
+   99  tar -zxf 3.2.8.tar.gz  # -z unzip "gz", -x "extract", -f specify "file"
+  100  cd /home/$USER/src
+  101  ls
+  102  cd eigenmvn
+  103  g++ -I/usr/include -I/usr/include/eigen3 -g -std=c++11 test_eigenmvn.cc
+  104  g++ -I/usr/include -I/usr/include/eigen3 -g -std=c++11 test_eigenmvn.cc -o te
+  105  module list
+  106  ls
+  107  module unload python/3.10.2 gcc/5.4.0 
+  108  module load gcc
+  109  module list
+  110  g++ -I/usr/include -I/usr/include/eigen3 -g -std=c++11 test_eigenmvn.cc -o te
+  111  module unload gcc/11.2.0 
+  112  module load gcc/4.9.2
+  113  /home/$USER/src
+  114  /home/$USER/opt/eigen3
+  115  /home/$USER/src
+  116  mkdir /home/$USER/src
+  117  mkdir /home/$USER/opt/eigen3
+  118  cd /home/$USER/src
+  119  wget http://bitbucket.org/eigen/eigen/get/3.2.8.tar.gz
+  120  git clone https://github.com/CITA/CTA200H.git
+  121  jupyter notebook
+  122  module load python
+  123  jupyter notebook
+  124  cd /mnt/scratch-lustre/student16
+  125  ls
+  126  mkdir /mnt/scratch-lustre/student16/CTA200_2023
+  127  mkdir /mnt/scratch-lustre/student16/CTA200_2023/assignment_1
+  128  pwr
+  129  pwd
+  130  cd CTA200_2023
+  131  pwd
+  132  cd assignment_1
+  133  pwd
+  134  cd /home/murray
+  135  pwd
+  136  find Hello_world.c
+  137  ls /home/murray
+  138  find . -name "Hello_world"
+  139  pwd
+  140   cd
+  141  pwd
+  142   cp -av /home/murray/Hello_world.c  assignment_1
+  143  cp -av /home/murray/Hello_world.py  assignment_1
+  144  cd
+  145  ls
+  146  cd CTA200H
+  147  ls
+  148  cd assignmnt_1
+  149  cd
+  150  cd assignment_1
+  151  cd
+  152  pwd
+  153  jupyter
+  154  jupyter notebook
+  155  pwd
+  156  cd CTA200_2023
+  157  mkdir /mnt/scratch-lustre/student16/CTA200_2023
+  158  cd /mnt/scratch-lustre/student16
+  159  pwd
+  160  ls
+  161  cd CTA200_2023
+  162  ls
+  163  cd assignment_1
+  164  ls
+  165  pwd
+  166  cp -av /home/murray/Hello_world.c  assignment_1
+  167  pwd
+  168  ls
+  169  cd assignment_1
+  170  cp -av /home/murray/Hello_world.py  Hello_world_Wertheim.py
+  171  pwd
+  172  ls
+  173  rm assignment_1
+  174  ls
+  175  cp -av /home/murray/Hello_world.c  Hello_world_Wertheim.c
+  176  pwd
+  177  ls
+  178  module avail
+  179  module avail gcc
+  180  module load gcc/5.4.0
+  181  git config --global user.name "Maia"
+  182  git config --global user.email maia.wertheim@utoronto.ca
+  183  cd ~
+  184  cd /mnt/scratch-lustre/student16/CTA200_2023
+  185  git init
+  186  echo "*.o" > .gitignore
+  187  git add Hello_world_Wertheim.py
+  188  cd 
+  189  cd /mnt/scratch-lustre/student16
+  190  pwd
+  191  ls
+  192  cd CTA200_2023
+  193  ls
+  194  cd assignment_1
+  195  ls
+  196  git add Hello_world_Wertheim.py
+  197  git commit -m "Test"
+  198  git log
+  199  git push
+  200  cd ~
+  201  mkdir -p repos/gauss2d.git
+  202  cd repos/gauss2d.git
+  203  git init --bare
+  204  cd /mnt/scratch-lustre/$USER/gauss2d
+  205  cd /mnt/scratch-lustre/$USER/CTA200_2023
+  206  git remote add origin /home/$USER/repos/gauss2d.git
+  207  cat .git/config
+  208  git push --set-upstream origin master
+  209  LS
+  210  ls
+  211  cd assignment_1
+  212  ls
+  213  ssh-keygen -t ed25519 -C "maia.wertheim@mail.utoronto.ca"
+  214  eval "$(ssh-agent -s)"
+  215  ssh-add ~/.ssh/id_ed25519
+  216  vim ~/.ssh/id_ed25519.pub 
+  217  ls
+  218  pwd
+  219  cd ../
+  220  ls
+  221  cd ../
+  222  ls
+  223  cd ../
+  224  ls
+  225  cd -
+  226  ls
+  227  mv CTA200_2023/ abc
+  228  ls
+  229  git clone git@github.com:maiawertheim/CTA200_2023.git
+  230  ld
+  231  ls
+  232  cd CTA200_2023/
+  233  ls
+  234  cp -r ../abc/assignment_1/ ./
+  235  ls
+  236  git status
+  237  ls
+  238  vim README.md 
+  239  git status
+  240  git add assignment_1/
+  241  git status
+  242  git commit -m "assgn1"
+  243  git push
+  244  git status
+  245  git add README.md 
+  246  git statu
+  247  git status
+  248  git commit -m "updated readme"
+  249  git push
+  250  cosmo1.cita.utoronto.ca
+  251  ssh -X -Y
+  252  ssh -X -Y student16@gw.cita.utoronto.ca
+  253  firefox
+  254  ssh cosmo1.cita.utoronto.ca
+  255  firefox
+  256  emacs
+  257  module load python
+  258  jupyter notebook
+  259  ls -la
+  260  cd ~student19
+  261  ls
+  262  cd CTA200_2023
+  263  ls
+  264  lr - la
+  265  lr -la
+  266  ls -la
+  267  cd 
+  268  ls
+  269  cd /
+  270  ls -la
+  271  history
+  272  man history
+  273  cd tmp
+  274  ls
+  275  find Hello_world.py
+  276  cd
+  277  ls
+  278  pwd
+  279  cd tmp
+  280  emacs
+  281  git
+  282  cd
+  283  pwd
+  284  cd tmp
+  285  cd
+  286  pwd
+  287  git clone https://github.com/CITA/CTA200H.git
+  288  cd CTA200H
+  289  ls
+  290  ls -la
+  291  cd lecture_2_python_intro
+  292  ls -la
+  293  module list
+  294  pwd
+  295  jupyter notebook
+  296  history
+  297  pwr
+  298  pwd
+  299  cd /mnt/scratch-lustre/$USER
+  300  pwd
+  301  cd CITA200_2023
+  302  ls
+  303  cd CTA200_2023
+  304  ls
+  305  cd assignment_1
+  306  ls
+  307  less README.md
+  308  find README.md
+  309  cd CTA200_2023
+  310  cd
+  311  cd /mnt/scratch-lustre/$USER
+  312  ls
+  313  cd CTA200_2023
+  314  ls
+  315  less README.md
+  316  vi README.md
+  317  vim README.md
+  318  less README.md
+  319  cd
+  320  cd /mnt/scratch-lustre/$USER
+  321  ls
+  322  cd abc
+  323  ls
+  324  cd assignment_1
+  325  ls
+  326  cd
+  327  cd /mnt/scratch-lustre/$USER
+  328  ls
+  329  cd CTA200_2023
+  330  ls
+  331  module avail
+  332  module avail gcc
+  333  module load gcc/5.4.0
+  334  gcc Hello_world_Wertheim.c -o Hello_world.x
+  335  cd
+  336  cd /mnt/scratch-lustre/$USER
+  337  ls
+  338  cd CTA200_2023
+  339  ls
+  340  cd assignment_1
+  341  ls
+  342  module avail
+  343  pwd
+  344  gcc Hello_world_Wertheim.c -o Hello_world.x
+  345  pwd
+  346  ls
+  347  module load python
+  348  module list
+  349  Hello_world_Wertheim.c
+  350  pwd
+  351  Hello_world.x
+  352  Hello_world
+  353  pwd
+  354  ls
+  355  Hello_world
+  356  Hello_world.x
+  357  ./Hello_world_Wertheim.py
+  358  vi Hello_world_Wertheim.py
+  359  python Hello_world_Wertheim.py
+  360  vi Hello_world_Wertheim.py
+  361  less Hello_world_Wertheim.py
+  362  Hello_world
+  363  Hello_world.x
+  364  pwd
+  365  ls
+  366  gcc Hello_world_Wertheim.c -o Hello_world.exe
+  367  Hello_world
+  368  Hello_world.exe
+  369  ls
+  370  ./Hello_world.x
+  371  vi Hello_world.x
+  372  ython Hello_world_Wertheim.py
+  373  python Hello_world_Wertheim.py
+  374  vim Hello_world.x
+  375  vim Hello_world.c
+  376  ./ Hello_world.c
+  377  :/Hello_world.x
+  378  pwd
+  379  ls
+  380  ./Hello_world.x
+  381  ./Hello_world.c
+  382  vim Hello_world.x
+  383  vim Hello_world.c
+  384  ./Hello_world.x
+  385  vim Hello_world.x
+  386  vim Hello_world.c
+  387  pwd
+  388  ls
+  389  vim Hello_world.c
+  390  vim Hello_world_Wertheim.c
+  391  ./Hello_world_Wertheim.c
+  392  pwd
+  393  gcc Hello_world_Wertheim.c -o Hello_world.x
+  394  ls
+  395  ./Hello_world.x
+  396  ./Hello_world.x | output_c.txt
+  397  ./Hello_world > output_c.txt
+  398  ./Hello_world.x > output_c.txt
+  399  les
+  400  ls
+  401  less output_c.txt
+  402  ./Hello_world_Wertheim.py > output_python.txt
+  403  python Hello_world_Wertheim.py > output_python.txt
+  404  ls
+  405  git add output_c.txt
+  406  history > history.txt
