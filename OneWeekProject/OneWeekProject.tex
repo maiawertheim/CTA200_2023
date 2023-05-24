@@ -1,0 +1,188 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{array}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{textcomp}
+\usepackage{float}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+\title{CTA200H 2023 One Week Project}
+\author{Maia Wertheim}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Task 1}
+
+First the function $dE_\nu = I_\nu*cos(\theta)*dA*d\omega*d\nu*dt$ was defined. This function outputs the amount of energy ($dE_\nu$) entering a solid angle $d\omega$ in a frequency interval $d\nu$ within time dt per surface area element dA. The energy is a function of $I_\nu$ with radiation coming in at an angle $\theta$ with respect to the area the radiation is passing through, A. 
+
+Next the flux-intensity relation was defined to be $F = \pi I$, using the assumption that the incoming intensity is isotropic in order to disregard the more complex flux intensity relation involving integrals. 
+Finally the equation for flux as a function of the luminosity of the source and distance from the source was defined as $F= \frac{L}{4\pi d^2}$. 
+
+Multi-epoch g-band and r-band observations corresponding to CCD number 24 and field number 1 were downloaded, and the sources with the minimum modified Julian date observed for each catalogue were selected. Their distributions in the sky in equatorial coordinates were then plotted, as shown in Figure 1. 
+
+\begin{figure}[!ht]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{g_band_distb.pdf}
+  \caption{g-band distribution}
+  \label{fig:sfig1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{r_band_distb.pdf}
+  \caption{r-band distribution}
+  \label{fig:sfig2}
+\end{subfigure}
+\caption{HOWVAST g-band and r-band distributions in the sky in equatorial coordinates.}
+\label{fig:fig}
+\end{figure}
+
+The instrumental magnitudes of the data were then computed as a function of the PSF-based fluxes using the equation $mag = -2.5 log(\frac{F}{t_{exp}}) - a - k X$, where F is the PSF-based flux, $t_{exp}$ is the exposure time, a is a photometric zero point, k is a first-order extinction coefficient, and X is the airmass. For the g-band, a = -25.34 and k = 0.2, and for the r-band a = -25.45 and k = 0.1. For the g-band, the mean magnitude was found to be 22.194945 with a standard deviation of 2.068801. For the r-band the mean magnitude was found to be 20.382472 with a standard deviation of 1.978184. Histograms of the magnitude values for each band are shown in Figure 2 below. A concentration of magnitude values can be seen from ~ 22-24 for the g-band and 20-22.5 for the r-band. 
+
+\clearpage
+
+\begin{figure}
+\centering
+\includegraphics[width=.8\linewidth]{mags_hist.pdf}
+\caption{Histogram of calculated instrumental magnitudes for the g-band and r-band.}
+\label{fig:MagsHist}
+\end{figure}
+
+
+
+\section*{Task 2}
+
+Next data was retrieved from the NSC database using ADQL, using right ascension (ra) and declination (dec) values to limit the data. These values were the global minimum and maximum ra and dec values between both the g-band and r-band HOWVAST data. 
+
+Some columns available in the NSC table include ra and dec values along with their respective raerr and decerr, which will be useful for cross-matching with HOWVAST RA\_deg and DEC\_deg values to find potential matches between the catalogues. The mjd column can also be compared with HOWVAST's MJDObs column, to compare the times at which the data was observed. The gmag and rmag columns with their respective gerr and rerr data would also be helpful for comparing with our calculated g and r magnitudes for the HOWVAST data. The class\_star column will be help in limiting the NSC data, as it determines whether something is a star or a galaxy depending on whether it's class\_star value is closer to 1 or 0. 
+
+A cross-match was then performed between the HOWVAST and NSC data, based on equatorial coordinates. First all the NSC data that had g or r magnitudes equal to 99.99 were limited out, as these 99.99 values were equivalent to missing data. Then the NSC data was limited further in order to make sure that the data only contained stars and not galaxies. This was done by limiting the class\_star column to values greater than 0.85, as values close to one are likely to be stars and values close to zero are likely galaxies. The HOWVAST calculated magnitudes were also limited to be less than 23, as the magnitude uncertainties increase as the magnitudes become fainter and this was taken to be the cutoff point where the errors became too high. The magnitude uncertainties themselves were also limited to be less than 0.1.
+
+Then the r-band and g-band HOWVAST catalogues were cross-matched using SkyCoord from astropy, in order to make them the same shape. This cross-match was done by matching equatorial coordinates (ra and dec values). Then the HOWVAST and NSC data were cross-matched in the same way, and because the r-band and g-band data from HOWVAST had already been cross-matched, the matching values could be called for both of them at the same time without having to match them seperately to the NSC data. The best cross-matched pairs were defined by whether the distance between the stars was less than 0.5 arc-seconds. There were a total of 516 matches. 
+An example of the some of the crossmatched data can be seen in Table 1. This table contains a limited selection of crossmatched NSC and HOWVAST data, and contains NSC and HOWVAST right ascension, declination, and r-magnitude information. The ra and dec values are quite similar, but the magnitudes are less so. This is most likely because the NSC data is already calibrated, whereas the HOWVAST data is not. 
+
+
+\begin{table*}
+\begin{center}    
+
+\resizebox{\textwidth}{!}{\begin{tabular}{cccccc}
+ra & dec & rmag & RA\_deg & DEC\_deg & mag\_r \\
+308.3199815157328 & -39.74382571463147 & 21.343632 & 308.32001608576167 & -39.74384056542559 & 21.447233589694743 \\
+308.32191564303275 & -39.74569709506943 & 21.355093 & 308.3219156711253 & -39.74567891613083 & 21.475259052975034 \\
+308.31976394843497 & -39.73769648446402 & 20.624195 & 308.3197595478313 & -39.73771249522027 & 20.78218591688039 \\
+308.32463524933576 & -39.7397136514464 & 20.663216 & 308.32464752773564 & -39.73974360095482 & 20.752765757645363 \\
+308.3277821120881 & -39.74191975250112 & 15.746295 & 308.3277688768264 & -39.7419723864803 & 15.891395714449835 \\
+308.323668519267 & -39.78843478930611 & 20.98415 & 308.3236692617301 & -39.78845080272856 & 21.076242475135036 \\
+308.3263659268317 & -39.79730484727615 & 19.916483 & 308.3263747971646 & -39.79731313603296 & 20.00293972512703 \\
+308.3359846562108 & -39.79946088055532 & 21.039448 & 308.33600356647145 & -39.79950429207855 & 21.099460237419855 \\
+308.33397811953824 & -39.78349216603588 & 19.414886 & 308.3339833259193 & -39.78350806393074 & 19.55387001689415 \\
+308.3391014497509 & -39.79332240231385 & 19.423096 & 308.3391128973188 & -39.793338585407135 & 19.54560498325442 \\
+\end{tabular}}
+\caption{Crossmatched HOWVAST and NSC data. This table contains ra, dec, and r magnitude values.}
+\end{center}
+\end{table*}
+
+
+
+\section*{Task 3}
+
+Then colour magnitude diagrams were built from the cross-matched HOWVAST and NSC data, as shown in Figures 3 and 4. Figure 3 shows g versus g-r colour (a) and g-r versus r colour (b) for the NSC data, with the uncertainties being taken and propagated from the g\_err and r\_err columns of the NSC data. Then Figure 4 shows the same plots, but this time for the HOWVAST data. The errors on these graphs were propagated from the flux uncertainties in each band, using the equation $-2.5 \frac{uflux}{log (flux)}$, where uflux is the uncertainty in the flux from the base\_PsfFlux\_fluxSigma column and flux is from the base\_PsfFlux\_flux column. All of these plots are very zoomed in, as can be seen from the scale of the axes. This explains why no clear shape can be seen in either the g-band or r-band data. It seems like there are higher uncertainties in the r-band plots, and that the uncertainties seem to be slightly larger for the HOWVAST data, such as for the lowest g-r values and dimmest r-values in Figure 3 b) versus Figure 4 b). The HOWVAST and NSC colour magnitude diagrams also have slightly different concentrations of data points, even though they have been cross-matched. For example, in Figure 4a) there is more of a concentration of points near the highest g-r values than in Figure 3a), and the data with the brightest r magnitude values in Figures 3b) and 4b) trail off differently depending on whether they are from the NSC or HOWVASt catalogues. This is reasonable, as the NSC data has already been calibrated, whereas the HOWVAST data has not so seeing some differences is not unexpected. 
+
+\clearpage
+\begin{figure}[ht!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{nsc_cmd_gr_g.pdf}
+  \caption{g versus g-r colour}
+  \label{fig:nsc1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{nsc_cmd_gr_r.pdf}
+  \caption{g-r versus r colour}
+  \label{fig:nsc2}
+\end{subfigure}
+\caption{Colour magnitude diagrams for NSC data, using the g-band and r-band. The pink indicates uncertainties.}
+\label{fig:nsc}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{hvst_cmd_gr_g.pdf}
+  \caption{g versus g-r colour}
+  \label{fig:hvst1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{hvst_cmd_gr_r.pdf}
+  \caption{g-r versus r colour}
+  \label{fig:hvst2}
+\end{subfigure}
+\caption{Colour magnitude diagrams for HOWVAST data, using the g-band and r-band. The pink indicates uncertainties.}
+\label{fig:hvst}
+\end{figure}
+
+
+
+
+Then the magnitudes for the catalogs in each pass-band were compared. This was done by plotting the difference in magnitudes (NSC data - HOWVAST data), versus the magnitude for each catalogue. These plots can be seen in Figures 5 and 6. 
+
+The difference in magnitudes seems to be greatest at fainter magnitudes, and decrease with higher magnitudes. This makes sense, as the NSC data is calibrated whereas the HOWVAST data is not, and the dimmer stars have higher uncertainties associated with them because they are not as easy to detect precisely as brighter stars. Examining the plots, we can see what looks like a mild negative linear correlation between magnitude and magnitude difference. With a larger data set, we may be able to see this correlation more distinctly and fit the relation to solve for the slope and the constant.
+
+\clearpage
+
+\begin{figure}[ht!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{nsc_gmag_diff.pdf}
+  \caption{g magnitude differences versus NSC g colour}
+  \label{fig:nscdiff1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{nsc_rmag_diff.pdf}
+  \caption{r magnitude differences versus NSC r colour}
+  \label{fig:nscdiff2}
+\end{subfigure}
+\caption{colour differences between NSC and HOWVAST data, as a function of NSC colour.}
+\label{fig:nscdiff}
+\end{figure}
+
+\begin{figure}[ht!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{hvst_gmag_diff.pdf}
+  \caption{g magnitude differences versus HOWVAST g colour}
+  \label{fig:hvstdiff1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{hvst_rmag_diff.pdf}
+  \caption{r magnitude differences versus HOWVAST r colour}
+  \label{fig:hvstdiff2}
+\end{subfigure}
+\caption{g-colour differences between NSC and HOWVAST data, as a function of HOWVAST colour.}
+\label{fig:hvstdiff}
+\end{figure}
+
+ 
+
+
+\section*{Optional Task}
+
+Information was taken from the Gaia database about the HOWVAST targets, again using the minimum ra and dec values from HOWVAST to limit the data. Similarly to the NSC data, ra, dec, ra\_error and dec\_error would be helpful if we wanted to cross-match with the HOWVAST data. Gaia also has phot\_g\_mean\_flux, with a phot\_g\_mean\_flux\_over\_error, as well as the same for the r band (the same but rp), which could be useful for comparing calculated magnitudes and errors as Gaia data is calibrated. However, we would need to check that the bands used are the same or similar enough to correct for differences. There are also phot\_g\_mean\_mag values, and the equivalent for rp, wit which we could also compare magnitudes. CMDs could also be plotted as the g\_rp column is equivalent to G-RP colour. 
+
+However, there are many Gaia data points that have high errors, for example phot\_g\_mean\_flux\_over\_error values of ~6.64. In order to perform data quality cuts, we can limit the data to only contain reasonable errors before cross-matching it. For example, we could limit the phot\_g\_mean\_flux\_over\_error column, the contaminated transit columns, the astrometric excess noise column, and the ruwe (renormalized unit weight error) column to only contain data with reasonable errors. 
+
+\end{document}
